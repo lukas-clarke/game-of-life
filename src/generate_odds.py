@@ -1,5 +1,5 @@
 import random
-from data_parsing_helper import ParseCsv
+from src.data_parsing_helper import ParseCsv
 
 class generateOdds():
     def __init__(self):

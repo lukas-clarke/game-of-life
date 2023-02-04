@@ -10,6 +10,7 @@ To run the game:
 This is also a practice coding exercise.
 You can use the csv data I collected to create your own version of the game.
 To do this:
+
     - do not look at data_parsing_helper.py or generate_odds.py in /src
     - Create steps to
         - parse the csv files
