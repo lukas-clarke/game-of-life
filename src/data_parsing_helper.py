@@ -1,5 +1,9 @@
 import csv
 import random
+import sys, os
+from pathlib import Path
+
+DATA_FOLDER = Path(Path(__file__).resolve().parent.parent, "data")
 
 class Country():
     def __init__(self, name, population, life_expectancy, poverty_rate,
@@ -52,15 +56,16 @@ class ParseCsv():
         median_income = {}
         median_income_per_day = {}
         poverty_rate = {}
-        self._get_csv_dictionary('D:\Documents\CODE\python_code\where_in_the_world\data\country_by_population.csv',
+
+        self._get_csv_dictionary(str(Path(DATA_FOLDER, 'country_by_population.csv')),
                                  population)
-        self._get_csv_dictionary('D:\Documents\CODE\python_code\where_in_the_world\data\country_life_expectancy.csv',
+        self._get_csv_dictionary(str(Path(DATA_FOLDER, 'country_life_expectancy.csv')),
                                  life_expectancy)
-        self._get_csv_dictionary('D:\Documents\CODE\python_code\where_in_the_world\data\country_median_income_MORE_ACCURATE.csv',
+        self._get_csv_dictionary(str(Path(DATA_FOLDER, 'country_median_income_MORE_ACCURATE.csv')),
                                  median_income)
-        self._get_csv_dictionary('D:\Documents\CODE\python_code\where_in_the_world\data\country_median_income_per_day_LESS_ACCURATE.csv',
+        self._get_csv_dictionary(str(Path(DATA_FOLDER, 'country_median_income_per_day_LESS_ACCURATE.csv')),
                                  median_income_per_day)
-        self._get_csv_dictionary('D:\Documents\CODE\python_code\where_in_the_world\data\country_poverty_rate.csv',
+        self._get_csv_dictionary(str(Path(DATA_FOLDER, 'country_poverty_rate.csv')),
                                  poverty_rate)
         countries = {}
         for key in population.keys():
@@ -78,7 +83,7 @@ class ParseCsv():
         return countries
 
 if __name__ == "__main__":
-    with open('D:\Documents\CODE\python_code\where_in_the_world\data\country_by_population.csv') as f:
+    with open(str(Path(DATA_FOLDER, 'country_by_population.csv'))) as f:
         print(f)
     parser = ParseCsv()
     countries = parser.parse_csv_files()
